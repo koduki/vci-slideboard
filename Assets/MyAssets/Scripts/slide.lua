@@ -2,6 +2,8 @@ print("slide: ver02")
 
 local MAX_SLIDE_PAGE = 4
 local UseCount = 0
+local DummyRightScreen = vci.assets.GetSubItem("DummyRightScreen")
+local RightScreen = vci.assets.GetSubItem("RightScreen")
 
 function NextSlide()
     UseCount = UseCount + 1
@@ -20,6 +22,17 @@ function OnLazerPointerMessage(sender, name, message)
 end
 vci.message.On("sendFromLazerPointer121", OnLazerPointerMessage)
 
-function OnUse(use)
+function onUse(use)
     NextSlide()
+end
+
+function updateAll()
+    print(vci.assets.GetSubItem("Board").GetLocalScale())
+    RightScreen.SetPosition(DummyRightScreen.GetPosition())
+    RightScreen.SetRotation(DummyRightScreen.GetRotation())
+
+    local scale = vci.assets.GetSubItem("Board").GetLocalScale()
+    scale.z = 6.123234e-17
+    scale.x = scale.x - 0.1
+    RightScreen.SetLocalScale(scale)
 end

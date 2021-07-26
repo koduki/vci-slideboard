@@ -43,11 +43,8 @@ function updateAll()
 end
 
 function onTriggerEnter(item, hit)
-     print(string.format("onTriggerEnter: item=%s, item=%s", item, hit))
-     if (item == "Lazer") then  
-          if (hit == "Board") then
-               print("Nice Board")
-          end
+     if (item == "Lazer") and (hit == "RightScreen") then
+          print(string.format("onTriggerEnter: item=%s, item=%s", item, hit))
      end
 end
 
