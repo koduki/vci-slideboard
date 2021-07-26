@@ -1,0 +1,13 @@
+{
+    "Lua.diagnostics.globals": [
+        "vci",
+        "Vector3",
+        "onTriggerExit",
+        "onUse",
+        "onTriggerEnter",
+        "updateAll",
+        "onUngrab",
+        "onGrab",
+        "Vector2"
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "name": "UniVCI.Editor",
+    "references": [
+        "VCI",
+        "Unity.TextMeshPro",
+        "UniGLTF",
+        "UniGLTF.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
