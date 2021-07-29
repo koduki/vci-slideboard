@@ -1,12 +1,18 @@
-print("slide: ver02")
+print("slideboard: ver02")
 
 local MAX_SLIDE_PAGE = 4
 local UseCount = 0
 local DummyRightScreen = vci.assets.GetSubItem("DummyRightScreen")
+local DummyLeftScreen = vci.assets.GetSubItem("DummyLeftScreen")
 local RightScreen = vci.assets.GetSubItem("RightScreen")
+local LeftScreen = vci.assets.GetSubItem("LeftScreen")
 
-function NextSlide()
-    UseCount = UseCount + 1
+function NextSlide(boardStatus)
+    if boardStatus == "right" then
+        UseCount = UseCount + 1
+    elseif boardStatus == "left" then
+        UseCount = UseCount - 1
+    end
 
     local index = UseCount % MAX_SLIDE_PAGE
     local offset = Vector2.zero
@@ -18,21 +24,23 @@ end
 
 function OnLazerPointerMessage(sender, name, message)
     print(message.event)
-    NextSlide()
+    NextSlide(message.event)
 end
 vci.message.On("sendFromLazerPointer121", OnLazerPointerMessage)
 
 function onUse(use)
-    NextSlide()
+    NextSlide("left")
 end
 
 function updateAll()
-    print(vci.assets.GetSubItem("Board").GetLocalScale())
     RightScreen.SetPosition(DummyRightScreen.GetPosition())
     RightScreen.SetRotation(DummyRightScreen.GetRotation())
+    LeftScreen.SetPosition(DummyLeftScreen.GetPosition())
+    LeftScreen.SetRotation(DummyLeftScreen.GetRotation())
 
     local scale = vci.assets.GetSubItem("Board").GetLocalScale()
     scale.z = 6.123234e-17
     scale.x = scale.x - 0.1
     RightScreen.SetLocalScale(scale)
+    LeftScreen.SetLocalScale(scale)
 end

@@ -7,6 +7,7 @@ local Lazer = {
 }
 local Stick = vci.assets.GetSubItem("Stick")
 local DummyLazer = vci.assets.GetSubItem("DummyLazer")
+local BoardStatus = "" --'left'|'right'
 
 function SetLazerLength(len)
      Lazer.length = len
@@ -43,17 +44,20 @@ function updateAll()
 end
 
 function onTriggerEnter(item, hit)
-     if (item == "Lazer") and (hit == "RightScreen") then
-          print(string.format("onTriggerEnter: item=%s, item=%s", item, hit))
+     if (item == "Lazer") then
+          if (hit == "LeftScreen") then
+               BoardStatus = "left"
+               print(string.format("onTriggerEnter: item=%s, item=%s", item, hit))
+          elseif (hit == "RightScreen") then
+               BoardStatus = "right"
+               print(string.format("onTriggerEnter: item=%s, item=%s", item, hit))
+          end
      end
 end
 
 function onTriggerExit(item, hit)
-     if (item == "Lazer") then  
-
-     end
 end
 
 function onUse()
-     vci.message.EmitWithId("sendFromLazerPointer121", { event = "next" })
+     vci.message.EmitWithId("sendFromLazerPointer121", { event = BoardStatus })
 end 

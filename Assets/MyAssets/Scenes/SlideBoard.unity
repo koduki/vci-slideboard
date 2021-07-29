@@ -200,6 +200,116 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9703582}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &308918138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308918139}
+  - component: {fileID: 308918143}
+  - component: {fileID: 308918142}
+  - component: {fileID: 308918141}
+  - component: {fileID: 308918140}
+  m_Layer: 0
+  m_Name: LeftScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &308918139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308918138}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.425, y: 0.5, z: -0.016}
+  m_LocalScale: {x: 0.85, y: 1, z: 6.123234e-17}
+  m_Children: []
+  m_Father: {fileID: 362681788}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &308918140
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308918138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 6.1232336e-17}
+  m_Center: {x: 0, y: 0, z: -0.01}
+--- !u!54 &308918141
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308918138}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!23 &308918142
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308918138}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7943696cbe99ced42a9de419836ed12a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &308918143
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308918138}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &362681786
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +345,7 @@ MonoBehaviour:
     contactInformation: 
     reference: 
     thumbnail: {fileID: 2800000, guid: 2cc6a78792f2d94419daf054c50483ae, type: 3}
-    version: 0.12
+    version: 0.1
     description: "\u30EB\u30FC\u30E0\u5BFE\u5FDC\u30B9\u30E9\u30A4\u30C9\u7528VCI"
     exporterVersion: 0.32
     specVersion: 
@@ -251,15 +361,24 @@ MonoBehaviour:
     mimeType: 0
     targetEngine: 0
     textAsset: {fileID: 0}
-    source: "print(\"slide: ver01\")\r\n\r\nlocal MAX_SLIDE_PAGE = 4\r\nlocal UseCount
-      = 0\r\n\r\nfunction NextSlide()\r\n    UseCount = UseCount + 1\r\n\r\n    local
-      index = UseCount % MAX_SLIDE_PAGE\r\n    local offset = Vector2.zero\r\n   
-      offset.y = 0\r\n    offset.x = (1.0 / MAX_SLIDE_PAGE) * index\r\n    print(string.format(\"page:
-      %d, onUse: %d, offset.x: %d, offset.y: %d\", index + 1, UseCount, offset.x,
-      offset.y))\r\n    vci.assets._ALL_SetMaterialTextureOffsetFromName(\"Slide\",
+    source: "print(\"slideboard: ver02\")\r\n\r\nlocal MAX_SLIDE_PAGE = 4\r\nlocal
+      UseCount = 0\r\nlocal DummyRightScreen = vci.assets.GetSubItem(\"DummyRightScreen\")\r\nlocal
+      DummyLeftScreen = vci.assets.GetSubItem(\"DummyLeftScreen\")\r\nlocal RightScreen
+      = vci.assets.GetSubItem(\"RightScreen\")\r\nlocal LeftScreen = vci.assets.GetSubItem(\"LeftScreen\")\r\n\r\nfunction
+      NextSlide(boardStatus)\r\n    if boardStatus == \"right\" then\r\n        UseCount
+      = UseCount + 1\r\n    elseif boardStatus == \"left\" then\r\n        UseCount
+      = UseCount - 1\r\n    end\r\n\r\n    local index = UseCount % MAX_SLIDE_PAGE\r\n   
+      local offset = Vector2.zero\r\n    offset.y = 0\r\n    offset.x = (1.0 / MAX_SLIDE_PAGE)
+      * index\r\n    print(string.format(\"page: %d, onUse: %d, offset.x: %d, offset.y:
+      %d\", index + 1, UseCount, offset.x, offset.y))\r\n    vci.assets._ALL_SetMaterialTextureOffsetFromName(\"Slide\",
       offset)\r\nend\r\n\r\nfunction OnLazerPointerMessage(sender, name, message)\r\n   
-      print(message.event)\r\n    NextSlide()\r\nend\r\nvci.message.On(\"sendFromLazerPointer121\",
-      OnLazerPointerMessage)\r\n\r\nfunction OnUse(use)\r\n    nextSlide()\r\nend\r\n"
+      print(message.event)\r\n    NextSlide(message.event)\r\nend\r\nvci.message.On(\"sendFromLazerPointer121\",
+      OnLazerPointerMessage)\r\n\r\nfunction onUse(use)\r\n    NextSlide(\"left\")\r\nend\r\n\r\nfunction
+      updateAll()\r\n    RightScreen.SetPosition(DummyRightScreen.GetPosition())\r\n   
+      RightScreen.SetRotation(DummyRightScreen.GetRotation())\r\n    LeftScreen.SetPosition(DummyLeftScreen.GetPosition())\r\n   
+      LeftScreen.SetRotation(DummyLeftScreen.GetRotation())\r\n\r\n    local scale
+      = vci.assets.GetSubItem(\"Board\").GetLocalScale()\r\n    scale.z = 6.123234e-17\r\n   
+      scale.x = scale.x - 0.1\r\n    RightScreen.SetLocalScale(scale)\r\n    LeftScreen.SetLocalScale(scale)\r\nend"
 --- !u!4 &362681788
 Transform:
   m_ObjectHideFlags: 0
@@ -273,6 +392,7 @@ Transform:
   m_Children:
   - {fileID: 1398708829}
   - {fileID: 1569828586}
+  - {fileID: 308918139}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -597,7 +717,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 72d3549f668a9ca4a97717c8b089b316, type: 2}
+  - {fileID: 2100000, guid: 7943696cbe99ced42a9de419836ed12a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -659,6 +779,7 @@ Transform:
   - {fileID: 603250434}
   - {fileID: 9703583}
   - {fileID: 1108385040}
+  - {fileID: 1941995011}
   m_Father: {fileID: 362681788}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -819,3 +940,99 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1941995010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1941995011}
+  - component: {fileID: 1941995014}
+  - component: {fileID: 1941995013}
+  - component: {fileID: 1941995012}
+  m_Layer: 0
+  m_Name: DummyLeftScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1941995011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941995010}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.425, y: 0.5, z: 0}
+  m_LocalScale: {x: 0.84999996, y: 1, z: 6.123234e-17}
+  m_Children: []
+  m_Father: {fileID: 1398708829}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1941995012
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941995010}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!23 &1941995013
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941995010}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7943696cbe99ced42a9de419836ed12a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1941995014
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941995010}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
