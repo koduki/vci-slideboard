@@ -1,4 +1,4 @@
-print("lazer-pointer: ver02")
+print("lazer-pointer: ver01")
 
 local Lazer = {
      obj = vci.assets.GetSubItem("Lazer"),

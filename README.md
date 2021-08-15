@@ -21,6 +21,6 @@ VCIスクリプトをリアルタイムで変更するには`EmbeddedScriptWorks
 cmdを管理者権限起動し`mklink /h`を使って以下のようにハードリンクを作成する。
 
 ```bash
-mklink /h "%UserProfile%\AppData\LocalLow\infiniteloop Co,Ltd\VirtualCast\EmbeddedScriptWorkspace\スライドボード\main.lua"  "%userprofile%\git\vci-slideboard\Assets\MyAssets\Scripts\slide.lua"
+mklink /h "%UserProfile%\AppData\LocalLow\infiniteloop Co,Ltd\VirtualCast\EmbeddedScriptWorkspace\プレゼン用スライドVCI β版\main.lua"  "%userprofile%\git\vci-slideboard\Assets\MyAssets\Scripts\slide.lua"
 mklink /h "%UserProfile%\AppData\LocalLow\infiniteloop Co,Ltd\VirtualCast\EmbeddedScriptWorkspace\LazerPointer\main.lua"  "%userprofile%\git\vci-slideboard\Assets\MyAssets\Scripts\lazer_pointer.lua"
 ```

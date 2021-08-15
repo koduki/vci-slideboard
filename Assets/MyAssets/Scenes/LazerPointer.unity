@@ -430,7 +430,7 @@ MonoBehaviour:
     mimeType: 0
     targetEngine: 0
     textAsset: {fileID: 0}
-    source: "print(\"lazer-pointer: ver02\")\r\n\r\nlocal Lazer = {\r\n     obj =
+    source: "print(\"lazer-pointer: ver01\")\r\n\r\nlocal Lazer = {\r\n     obj =
       vci.assets.GetSubItem(\"Lazer\"),\r\n     length = 5,\r\n     lightSource =
       0.52 + 2 * 5\r\n}\r\nlocal Stick = vci.assets.GetSubItem(\"Stick\")\r\nlocal
       DummyLazer = vci.assets.GetSubItem(\"DummyLazer\")\r\nlocal BoardStatus = \"\"
