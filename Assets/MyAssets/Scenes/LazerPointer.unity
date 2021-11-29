@@ -414,7 +414,7 @@ MonoBehaviour:
     contactInformation: 
     reference: 
     thumbnail: {fileID: 2800000, guid: 94f09e2b2916b494086d1a69ad241a2c, type: 3}
-    version: 0.3
+    version: 0.2
     description: "\u30B9\u30E9\u30A4\u30C9\u30DC\u30FC\u30C9\u7528\u306E\u30EC\u30FC\u30B6\u30DD\u30A4\u30F3\u30BF\u30FC"
     exporterVersion: 0.32
     specVersion: 
@@ -430,27 +430,34 @@ MonoBehaviour:
     mimeType: 0
     targetEngine: 0
     textAsset: {fileID: 0}
-    source: "print(\"lazer-pointer: ver01\")\r\n\r\nlocal Lazer = {\r\n     obj =
-      vci.assets.GetSubItem(\"Lazer\"),\r\n     length = 5,\r\n     lightSource =
-      0.52 + 2 * 5\r\n}\r\nlocal Stick = vci.assets.GetSubItem(\"Stick\")\r\nlocal
-      DummyLazer = vci.assets.GetSubItem(\"DummyLazer\")\r\n\r\nfunction SetLazerLength(len)\r\n    
-      Lazer.length = len\r\n     Lazer.lightSource = 0.52 + 2 * len\r\n     print(string.format(\"Lazer.length:
+    source: "print(\"lazer-pointer: ver01\")\r\n\r\nlocal Lazer = {\r\n    obj =
+      vci.assets.GetSubItem(\"Lazer\"),\r\n    length = 5,\r\n    lightSource = 0.52
+      + 2 * 5\r\n}\r\nlocal Stick = vci.assets.GetSubItem(\"Stick\")\r\nlocal DummyLazer
+      = vci.assets.GetSubItem(\"DummyLazer\")\r\nlocal BoardStatus = \"\" --'left'|'right'\r\n\r\nlocal
+      ParingId = \"\"\r\n\r\nfunction SetLazerLength(len)\r\n    Lazer.length = len\r\n   
+      Lazer.lightSource = 0.52 + 2 * len\r\n    print(string.format(\"Lazer.length:
       %d, Lazer.lightSource: %d\", Lazer.length, Lazer.lightSource))\r\nend\r\n\r\nfunction
-      TurnOnLazer()\r\n     local scale = Vector3.__new(0.005, 0.005, Lazer.length)\r\n    
-      local pos = Vector3.__new(0, 0, Lazer.lightSource)\r\n     DummyLazer.SetLocalPosition(pos)\r\n    
-      DummyLazer.SetLocalScale(scale)\r\nend\r\n\r\nfunction TurnOffLazer()\r\n    
-      local scale = Vector3.__new(0.005, 0.005, 0)\r\n     local pos = Vector3.__new(Stick.getLocalPosition().x,
-      Stick.getLocalPosition().y, 0)\r\n     DummyLazer.SetLocalPosition(pos)\r\n    
-      DummyLazer.SetLocalScale(scale)\r\nend\r\n\r\nfunction onGrab(use)\r\n    
-      TurnOnLazer()\r\nend\r\n\r\nfunction onUngrab(use)\r\n     TurnOffLazer()\r\nend\r\n\r\nfunction
-      updateAll()\r\n     Lazer.obj.SetPosition(DummyLazer.GetPosition())\r\n    
-      Lazer.obj.SetRotation(DummyLazer.GetRotation())\r\n     Lazer.obj.SetLocalScale(DummyLazer.GetLocalScale())\r\nend\r\n\r\nfunction
-      onTriggerEnter(item, hit)\r\n     print(string.format(\"onTriggerEnter: item=%s,
-      item=%s\", item, hit))\r\n     if (item == \"Lazer\") then  \r\n          if
-      (hit == \"Board\") then\r\n               print(\"Nice Board\")\r\n         
-      end\r\n     end\r\nend\r\n\r\nfunction onTriggerExit(item, hit)\r\n     if
-      (item == \"Lazer\") then  \r\n\r\n     end\r\nend\r\n\r\nfunction onUse()\r\n    
-      vci.message.EmitWithId(\"sendFromLazerPointer121\", { event = \"next\" })\r\nend "
+      TurnOnLazer()\r\n    local scale = Vector3.__new(0.005, 0.005, Lazer.length)\r\n   
+      local pos = Vector3.__new(0, 0, Lazer.lightSource)\r\n    DummyLazer.SetLocalPosition(pos)\r\n   
+      DummyLazer.SetLocalScale(scale)\r\nend\r\n\r\nfunction TurnOffLazer()\r\n   
+      local scale = Vector3.__new(0.005, 0.005, 0)\r\n    local pos = Vector3.__new(Stick.getLocalPosition().x,
+      Stick.getLocalPosition().y, 0)\r\n    DummyLazer.SetLocalPosition(pos)\r\n   
+      DummyLazer.SetLocalScale(scale)\r\nend\r\n\r\nfunction onGrab(use)\r\n    TurnOnLazer()\r\nend\r\n\r\nfunction
+      onUngrab(use)\r\n    TurnOffLazer()\r\nend\r\n\r\nfunction updateAll()\r\n   
+      Lazer.obj.SetPosition(DummyLazer.GetPosition())\r\n    Lazer.obj.SetRotation(DummyLazer.GetRotation())\r\n   
+      Lazer.obj.SetLocalScale(DummyLazer.GetLocalScale())\r\nend\r\n\r\nfunction
+      onTriggerEnter(item, hit)\r\n    if (item == \"Lazer\") then\r\n        if
+      (hit == \"LeftScreen\") then\r\n            BoardStatus = \"left\"\r\n           
+      print(string.format(\"onTriggerEnter: item=%s, item=%s\", item, hit))\r\n       
+      elseif (hit == \"RightScreen\") then\r\n            BoardStatus = \"right\"\r\n           
+      print(string.format(\"onTriggerEnter: item=%s, item=%s\", item, hit))\r\n       
+      elseif (hit == \"Board\") then\r\n            local ms =\r\n               
+      math.floor(\r\n                ((tonumber(string.match(tostring(os.clock()),
+      \"%d%.(%d+)\")) * 1000000) / 1000000 / 1000000) + 0.5\r\n            )\r\n           
+      ParingId = os.date(\"%Y%m%d%H%M%S\") .. ms\r\n            print(string.format(\"Slide
+      Paring ID: %s\", ParingId))\r\n        end\r\n    end\r\nend\r\n\r\nfunction
+      onUse()\r\n    vci.message.Emit(\"sendFromLazerPointer\", {event = BoardStatus,
+      paringId = ParingId})\r\nend\r\n"
 --- !u!1 &1002818429
 GameObject:
   m_ObjectHideFlags: 0
