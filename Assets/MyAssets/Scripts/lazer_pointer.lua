@@ -9,7 +9,7 @@ local Stick = vci.assets.GetSubItem("Stick")
 local DummyLazer = vci.assets.GetSubItem("DummyLazer")
 local BoardStatus = "" --'left'|'right'
 
-local Msgid = ""
+local ParingId = ""
 
 function SetLazerLength(len)
     Lazer.length = len
@@ -54,12 +54,16 @@ function onTriggerEnter(item, hit)
             BoardStatus = "right"
             print(string.format("onTriggerEnter: item=%s, item=%s", item, hit))
         elseif (hit == "Board") then
-            Msgid = os.date("%Y%m%d%H%M%S")
-            print(string.format("Slide Message ID: %s", Msgid))
+            local ms =
+                math.floor(
+                ((tonumber(string.match(tostring(os.clock()), "%d%.(%d+)")) * 1000000) / 1000000 / 1000000) + 0.5
+            )
+            ParingId = os.date("%Y%m%d%H%M%S") .. ms
+            print(string.format("Slide Paring ID: %s", ParingId))
         end
     end
 end
 
 function onUse()
-    vci.message.EmitWithId("sendFromLazerPointer", {event = BoardStatus, msgid = Msgid})
+    vci.message.Emit("sendFromLazerPointer", {event = BoardStatus, paringId = ParingId})
 end

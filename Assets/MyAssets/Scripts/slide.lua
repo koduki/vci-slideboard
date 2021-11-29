@@ -10,7 +10,7 @@ local DummyLeftScreen = vci.assets.GetSubItem("DummyLeftScreen")
 local RightScreen = vci.assets.GetSubItem("RightScreen")
 local LeftScreen = vci.assets.GetSubItem("LeftScreen")
 
-local Msgid = ""
+local ParingId = ""
 
 function NextSlide(boardStatus)
     if boardStatus == "right" then
@@ -52,8 +52,8 @@ function NextSlide(boardStatus)
 end
 
 function OnLazerPointerMessage(sender, name, message)
-    print(string.format("sender messageID:%s, own messageID:%s, event:%s", message.msgid, Msgid, message.event))
-    if (message.msgid == Msgid) then
+    print(string.format("sender ParingId:%s, own ParingId:%s, event:%s", message.paringId, ParingId, message.event))
+    if (message.paringId == ParingId) then
         NextSlide(message.event)
     end
 end
@@ -77,5 +77,7 @@ function updateAll()
 end
 
 function onTriggerEnter(item, hit)
-    Msgid = os.date("%Y%m%d%H%M%S")
+    local ms =
+        math.floor(((tonumber(string.match(tostring(os.clock()), "%d%.(%d+)")) * 1000000) / 1000000 / 1000000) + 0.5)
+    ParingId = os.date("%Y%m%d%H%M%S") .. ms
 end
